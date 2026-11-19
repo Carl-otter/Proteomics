@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "Proteomics"
+version = "0.1.0"
+description = "A workflow for a simple in in silico proteomics analysis."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Carlota Hagenlocher del Castillo" }]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "pytest",
+    "pandas",
+    "matplotlib",
+    "pyteomics",
+    "ipykernel"
+]
+
+[tool.setuptools.packages.find]
+include = ["Proteomics*"]
