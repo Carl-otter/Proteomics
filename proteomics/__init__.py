@@ -5,3 +5,8 @@ from .protein_digestion import compute_sequence_coverage
 from .liquid_chromatography import predict_lc_retention_times
 from .liquid_chromatography import plot_retention_time
 from .liquid_chromatography import select_retention_time_window
+from .mass_spectra_simulation import calculate_mol_mass
+from .mass_spectra_simulation import calculate_mol_mass_collection
+from .mass_spectra_simulation import calculate_mz_collection
+from .mass_spectra_simulation import plot_spectrum
+from .mass_spectra_simulation import fragment_peptide
