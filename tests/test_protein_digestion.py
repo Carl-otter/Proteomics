@@ -1,7 +1,5 @@
-from proteomics import digest_protein_sequence
-
 def test_digest_protein_sequence():
-
+    from proteomics import digest_protein_sequence
     dummy_seq = "AAAKBBBBKCCCCKDDDD"
 
     peptides = digest_protein_sequence(
@@ -15,10 +13,9 @@ def test_digest_protein_sequence():
 
     assert peptides == expected
 
-from proteomics.your_module import digest_protein_collection
-
 
 def test_digest_protein_collection():
+    from proteomics import digest_protein_collection
 
     dummy_proteins = {
         "protein1": "AAAKBBBBBKCCCCCCKDDDD",
@@ -38,3 +35,17 @@ def test_digest_protein_collection():
     }
 
     assert digested_peptides_map == expected
+
+
+def test_compute_sequence_coverage():
+    from proteomics import compute_sequence_coverage
+
+    protein_seq = "ABCDEFGHIJ"
+    peptides = ["ABC", "FGH"]
+
+    coverage = compute_sequence_coverage(protein_seq, peptides)
+
+    # 6 out of 10 amino acids are covered
+    expected = 60.0
+
+    assert coverage == expected
