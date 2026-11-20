@@ -53,3 +53,35 @@ def digest_protein_collection(protein_map, cleave_pattern, min_pep_len=5, max_pe
         digest_results[protein_id] = peptides
     return digest_results
 
+def compute_sequence_coverage(protein_seq, peptides):
+    """
+    Return the percentage of protein residues covered by the peptides. Test if the peptide is located in the sequence.
+
+    Parameters
+    ----------
+    protein_seq : str
+        The amino acid sequence of the protein
+    peptides : list
+        List of peptide fragments resulting from the digestion of the protein sequence
+
+    Returns
+    -------
+    float
+        The percentage of protein residues covered by the peptides
+    """
+
+    covered_positions = set()
+
+    for peptide in peptides:
+        start = 0
+
+        # Find every occurrence of this peptide in the protein.
+        while peptide:
+            start = protein_seq.find(peptide, start)
+            if start == -1:
+                break
+
+            covered_positions.update(range(start, start + len(peptide)))
+            start += 1
+
+    return len(covered_positions) / len(protein_seq) * 100
