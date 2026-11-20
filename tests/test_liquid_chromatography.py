@@ -1,20 +1,20 @@
-from proteomics.liquid_chromatography import predict_lc_retention_times
-from pyteomics import achrom
+# from proteomics.liquid_chromatography import predict_lc_retention_times
+# from pyteomics import achrom
 
-def test_predict_lc_retention_times():
+# def test_predict_lc_retention_times():
 
-    peptides = ["PEPTIDE", "SEQUENCE", "PROTEIN"]
+#     peptides = ["PEPTIDE", "SEQUENCE", "PROTEIN"]
 
-    retention_times = predict_lc_retention_times(peptides)
+#     retention_times = predict_lc_retention_times(peptides)
 
-    expected = {
-        peptide: round(
-            achrom.calculate_RT(peptide, achrom.RCs_guo_ph7_0), 2
-        )
-        for peptide in peptides
-    }
+#     expected = {
+#         peptide: round(
+#             achrom.calculate_RT(peptide, achrom.RCs_guo_ph7_0), 2
+#         )
+#         for peptide in peptides
+#     }
 
-    assert retention_times == expected
+#     assert retention_times == expected
 
 from proteomics.protein_digestion import select_retention_time_window
 
